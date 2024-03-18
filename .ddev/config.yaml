@@ -1,0 +1,27 @@
+name: dev-glightbox-website
+type: php
+docroot: dist
+php_version: "8.1"
+webserver_type: nginx-fpm
+xdebug_enabled: false
+additional_hostnames: []
+additional_fqdns: []
+database:
+    type: mariadb
+    version: "10.4"
+performance_mode: mutagen
+use_dns_when_possible: true
+ngrok_args: --domain monster-alert-starfish.ngrok-free.app
+composer_version: "2"
+web_environment: []
+nodejs_version: "20"
+disable_upload_dirs_warning: true
+web_extra_exposed_ports:
+    - name: astro-dev
+      container_port: 4321
+      http_port: 4322
+      https_port: 4321
+#web_extra_daemons:
+#    - name: astro-dev-daemon
+#      command: sleep 3 && npm run dev -- --host
+#      directory: /var/www/html

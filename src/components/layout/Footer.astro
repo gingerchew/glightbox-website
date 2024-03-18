@@ -1,0 +1,22 @@
+---
+import { ThemeToggle } from '@/components/ThemeToggle';
+import { cn } from '@/lib/utils';
+
+type Props = {
+  className?: string;
+};
+
+const { className } = Astro.props;
+---
+
+<footer class={cn(className)}>
+  <div class="container flex flex-col items-center justify-between gap-4 py-10 md:h-24 md:flex-row md:py-0">
+    <div class="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
+      <p class="balance-text text-center text-sm leading-loose md:text-left">
+        Made with love by <a href="https://www.biati.com.mx" target="_blank" class="underline">Biati Digital</a>
+      </p>
+    </div>
+
+    <ThemeToggle client:idle />
+  </div>
+</footer>

@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 30% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 47.4% 11.2%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 215 20.2% 65.1%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 220 11% 5%;
+    --foreground: 213 31% 91%;
+
+    --muted: 222 14% 9%;
+    --muted-foreground: 215.4 16.3% 56.9%;
+
+    --accent: 226 11% 14%;
+    --accent-foreground: 210 40% 98%;
+
+    --popover: 225 12% 12%;
+    --popover-foreground: 215 20.2% 65.1%;
+
+    --border: 216 10% 8%;
+    --input: 216 34% 17%;
+
+    --card: 224 71% 4%;
+    --card-foreground: 213 31% 91%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 1.2%;
+
+    --secondary: 222.2 47.4% 11.2%;
+    --secondary-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 216 34% 17%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    /* scroll-padding-top: 4rem; */
+    @apply scroll-pt-16 lg:scroll-pt-0;
+  }
+
+  body {
+    @apply bg-background font-sans text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  .balance-text {
+    text-wrap: balance;
+  }
+
+  /* Documentation part */
+  .docs-grid-cols-2 {
+    @apply grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2;
+  }
+
+  .callout > * {
+    @apply my-0 !important;
+  }
+
+  .font-icon-callout {
+    font-family: Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  }
+
+  /* MdxComponent: For <code></code> with no parent <pre></pre> */
+  :not(pre) > code {
+    @apply relative rounded border px-[0.3rem] py-[0.2rem] font-mono text-sm bg-background text-foreground;
+  }
+
+  table th {
+    font-size: 13px;
+  }
+
+  pre span {
+    font-style: normal !important;
+  }
+
+  .dark pre {
+    background-color: #0f1113 !important;
+  }
+}

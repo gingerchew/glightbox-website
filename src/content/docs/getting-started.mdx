@@ -1,0 +1,89 @@
+---
+title: GLightbox
+description: This documentation it's a work in progress
+---
+
+GLightbox is a beautful lightbox library written using TypeScript. It has plugins support and it's completely modular meaning you add the functionalities your project needs.
+ There's plugins to display images, iframes, inline content, videos and many more, each plugin has it's own configuration.
+
+<Callout icon="⚠️" type="warning">
+**GLightbox is completely free for open source and personal projects**. If you are including the library in a commercial project, plugin or theme please [check the available licenses](/docs/license-commercial/)
+</Callout>
+
+## Features
+
+- Created using TypeScript with no dependencies
+- Modular, you decide what features you want to include
+- Plugins support. You can extend the functionality with custom plugins
+- Customizable. You can adjust everything with the available option and CSS variables
+- Keyboard navigation
+- Videos support. Youtube, Vimeo and self hosted videos with autoplay
+- API to control the lightbox with the provided methods
+
+### Image gallery
+
+<Gallery id="images-gallery" columns={4} items={[
+    {
+        'thumbnail': 'image1-thumbnail.webp',
+        'large': '/galleries/image1-large.webp',
+    },
+    {
+        'thumbnail': 'image2-thumbnail.webp',
+        'large': '/galleries/image2-large.webp',
+    },
+    {
+        'thumbnail': 'image3-thumbnail.webp',
+        'large': '/galleries/image3-large.webp',
+    },
+    {
+        'thumbnail': 'image4-thumbnail.webp',
+        'large': '/galleries/image4-large.webp',
+    },
+    {
+        'thumbnail': 'image5-thumbnail.webp',
+        'large': '/galleries/image5-large.webp',
+    },
+    {
+        'thumbnail': 'image6-thumbnail.webp',
+        'large': '/galleries/image6-large.webp',
+    },
+    {
+        'thumbnail': 'image7-thumbnail.webp',
+        'large': '/galleries/image7-large.webp',
+    },
+    {
+        'thumbnail': 'image8-thumbnail.webp',
+        'large': '/galleries/image8-large.webp',
+    },
+
+]} />
+
+### Video gallery
+
+<Gallery id="videos-gallery" columns={4} items={[
+    {
+        'thumbnail': 'image9-thumbnail.webp',
+        'large': 'https://vimeo.com/115041822',
+        'label': 'Vimeo'
+    },
+    {
+        'thumbnail': 'image10-thumbnail.webp',
+        'large': 'https://stream.mux.com/VZtzUzGRv02OhRnZCxcNg49OilvolTqdnFLEqBsTwaxU/low.mp4',
+        'label': 'Local hosted'
+    },
+    {
+        'thumbnail': 'image11-thumbnail.webp',
+        'large': 'https://www.youtube.com/watch?v=oBzJ68kY1FI',
+        'label': 'Youtube'
+    },
+    {
+        'thumbnail': 'image12-thumbnail.webp',
+        'large': 'https://youtube.com/shorts/aVssOcX4P7s?si=neW4SdW2DHqaf8co',
+        'label': 'Youtube Short'
+    },
+]} />
+
+
+### Inline content
+
+### Iframes

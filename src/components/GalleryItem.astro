@@ -1,0 +1,38 @@
+---
+import { cn } from '@/lib/utils';
+import { Image } from 'astro:assets';
+
+interface Props {
+  id: string;
+  thumbnail: string;
+  large: string;
+  label?: string;
+  alt?: string;
+  title?: string;
+  description?: string;
+  width: number;
+  height: number;
+  aspect?: string;
+}
+const { id = '', label, thumbnail, large, height = 300, width = 600, ...attrs } = Astro.props;
+---
+
+<div>
+  <a href={large} class="block overflow-hidden" data-glightbox={id}>
+    <Image
+      class:list={cn('w-full h-full object-cover aspect-[16/15] rounded-lg')}
+      width={width}
+      height={height}
+      src={`/galleries/${thumbnail}`}
+      alt={''}
+    />
+
+    {
+      label && (
+        <span class="mt-3 flex w-full items-center justify-center text-sm font-medium text-secondary-foreground/80">
+          {label}
+        </span>
+      )
+    }
+  </a>
+</div>

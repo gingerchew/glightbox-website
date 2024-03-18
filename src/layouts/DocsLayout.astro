@@ -1,0 +1,41 @@
+---
+import { MainNavigationMenu } from '@/components/NavigationMenu';
+import Footer from '@/components/layout/Footer.astro';
+import Header from '@/components/layout/Header.astro';
+import { SheetMobileNav } from '@/components/layout/MobileNav';
+import { docsConfig } from '@/config/docs';
+import { navMenuConfig } from '@/config/menu';
+import { siteConfig } from '@/config/site';
+import { Icon } from 'astro-icon/components';
+import BaseLayout from './BaseLayout.astro';
+
+type Props = {
+  title: string;
+  description: string;
+};
+
+const { title, description } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <Header className="border-b">
+    <MainNavigationMenu slot="left-header" client:load />
+    <SheetMobileNav
+      mainNavItems={[...navMenuConfig.links]}
+      sidebarNavItems={[...navMenuConfig.infosNav, ...navMenuConfig.guidesNav, ...docsConfig.sidebarNav]}
+      slot="mobile-nav-header"
+      client:load
+    />
+
+    <nav slot="right-header">
+      <a href={siteConfig?.links?.github} target="_blank" rel="noreferrer">
+        <Icon name="github" class="size-8" />
+        <span class="sr-only">GitHub</span>
+      </a>
+    </nav>
+  </Header>
+
+  <slot />
+
+  <Footer className="border-t" />
+</BaseLayout>

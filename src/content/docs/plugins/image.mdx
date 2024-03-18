@@ -1,0 +1,50 @@
+---
+title: Image Plugin
+description: Adds support to display images
+---
+
+### Installation
+
+This plugin it's part of the GLightbox package, you just need to install GLightbox using following the [installation](/docs/installation/) process and then you can import the plugin in your code.
+
+
+### Usage
+
+```javascript
+import { GLightbox } from 'glightbox';
+import { ImageSlide } from 'glightbox/plugins';
+
+const lightbox = new GLightbox({
+    plugins: [
+      new ImageSlide(),
+    ]
+});
+```
+
+### Plugin Options
+
+| Option | Type | Default | Description |
+| --- | --- | --- | --- |
+| maxWidth  | string | `100vw` | The maximun width for the images. You can enter any valid CSS value like `800px`, `95%`, etc. |
+| matchFn | Function | `-` | You can provide a custom function so the plugin can notify GLightbox that it can handle the URL. The plugin by default checks for URL's ending in common image formats like `.jpg, .png, .webp and many more` if your URL does not include the image format use the matchFn to adjust it to your needs |
+
+
+```javascript
+import { GLightbox } from 'glightbox';
+import { ImageSlide } from 'glightbox/plugins';
+
+const lightbox = new GLightbox({
+    plugins: [
+      new ImageSlide({
+        maxWidth: '100vw',
+        matchFn: (match, url) => {
+          // If the URL contains picsum.photos, then it's an image
+          if (url.includes('picsum.photos')) {
+            match = true;
+          }
+          return match;
+        }
+      })
+    ]
+});
+```

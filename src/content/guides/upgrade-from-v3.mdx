@@ -1,0 +1,115 @@
+---
+title: Upgrading GLightbox from V3
+description: Everything you need to know before upgrading to the latest version
+---
+
+<Callout icon="⚠️" type="warning">
+  There are many breaking changes, make sure to test your code locally. We have created several guides to help you get started with this new update.
+</Callout>
+
+## Library options
+
+Numerous options have been either removed or relocated. V4 was designed to embrace modularity and extensibility through plugins. Instead of being overwhelmed with an array of options, each plugin now comes with its own dedicated configuration, allowing for a more organized and customizable approach. To see the available options check the [GLightbox options documentation](/docs/options) and also the [Plugins documentation](/docs/plugins/image)
+
+### Removed options
+
+| Option   | Reason  |
+| -------- | ----------- |
+| selector | Now the library uses the data attribute `data-glightbox`, to create multiple galleries you can assign a name `data-glightbox="mygallery"` |
+| width | Each plugin can define options to control width if required |
+| height | Each plugin can define options to control height if required |
+| videosWidth | Configuration provided by the video plugin |
+| autoplayVideos | Configuration provided by the video plugin |
+| autofocusVideos | Configuration provided by the video plugin |
+| draggable | Configuration provided by the drag plugin |
+| dragToleranceX | Configuration provided by the drag plugin |
+| dragToleranceY | Configuration provided by the drag plugin |
+| dragAutoSnap | Configuration provided by the drag plugin |
+| zoomable | It will be controlled by plugins if available |
+| descPosition | It will be controlled by theme plugins |
+| plyr | Plyr no longer included |
+| closeButton | Not particularly useful and should be controlled by theme plugins |
+| cssEfects | This is now controlled by theme plugins |
+
+
+### Moved options
+
+| Option   | Reason  |
+| -------- | ----------- |
+| elements | Renamed to `items` |
+| skin | Renamed to `theme` and moved to the appearance configuration |
+| openEffect | Moved to the appearance configuration |
+| closeEffect | Moved to the appearance configuration |
+| slideEffect | Moved to the appearance configuration |
+| moreText | Moved to the appearance configuration |
+| moreLength | Moved to the appearance configuration |
+| lightboxHTML | Moved to the appearance configuration |
+| slideHTML | Moved to the appearance configuration |
+
+
+### Removed Methods
+
+The majority of methods remain the same, only one method was removed.
+
+| Option   | Reason  |
+| -------- | ----------- |
+| openAt | The open method can do exactly the same |
+
+
+
+## Browsers support
+
+Version V4 discontinues support for IE11, concentrating solely on modern browsers. This intentional focus has allowed us to streamline the codebase significantly, resulting in a notable reduction in size and complexity.
+
+
+## HTML Changes
+
+<Callout icon="⚠️" type="warning">
+  In V3 the data attribute `data-glightbox` was used to provide information like title, description and many more values. If you were using the attribute like this, make sure to update your code.
+</Callout>
+
+One of the main changes is that now you don't need to specify a selector or use the glightbox class, now the library uses the `data-glightbox` attribute
+
+```html
+<!-- Previous HTML -->
+<a href="large.jpg" class="glightbox">
+  <img src="small.jpg" alt="image" />
+</a>
+
+<!-- New HTML -->
+<a href="large.jpg" data-glightbox>
+  <img src="small.jpg" alt="image" />
+</a>
+```
+
+By default, the library automatically groups all elements with the data-lightbox attribute to form a gallery. If you wish to disable this behavior and display only one item at a time, you can utilize the `autoGallery` option when initializing GLightbox. **This was not posible in older versions**.
+
+```javascript
+const lightbox = new GLightbox({
+  autoGallery: false
+});
+```
+
+---
+
+#### Creating multiple galleries
+
+Previously, to group elements into a gallery, it was necessary to utilize the `data-gallery` attribute, Now you can achieve the same functionality simply by assigning a value to the `data-glightbox` attribute
+
+
+```html
+<!-- Previous HTML -->
+<a href="large.jpg" class="glightbox" data-gallery="mygallery">
+  <img src="small.jpg" alt="image" />
+</a>
+
+<!-- New HTML -->
+<a href="large.jpg" data-glightbox="mygallery">
+  <img src="small.jpg" alt="image" />
+</a>
+```
+
+---
+
+In development...
+

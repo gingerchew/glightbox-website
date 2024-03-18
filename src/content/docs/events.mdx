@@ -1,0 +1,89 @@
+---
+title: Events
+description: Available API events
+---
+
+You can listen for events using your GLightbox instance. You can use the on() API method or once().
+
+
+## Events
+
+
+| Event Type          | Description                                                                                                                  |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| open                | Provide a function when the lightbox is opened.                                                                              |
+| close               | Provide a function when the lightbox is closed.                                                                              |
+| slide_before_change | Trigger a function before the slide is changed.                                                                              |
+| slide_changed       | Trigger a function after the slide is changed.                                                                               |
+| slide_before_load   | Trigger a function before a slide is loaded for the first time, the function will only be called once                        |
+| slide_after_load    | Trigger a function after a slide is loaded and it's content is set for the first time, the function will only be called once |
+| slide_inserted      | Trigger a function after a slide is inserted using insertSlide.                                                              |
+| slide_removed       | Trigger a function after a slide is removed`                                                                                 |
+
+## Examples
+
+```javascript
+const lightbox = GLightbox();
+lightbox.on('open', () => {
+  // Do something
+});
+
+lightbox.once('slide_changed', () => {
+  // Do something just one time
+});
+```
+
+
+```javascript
+const lightbox = GLightbox();
+lightbox.on('slide_before_change', ({ current, next }) => {
+  // current is the index of the currently visible slide
+  // next is the index of the slide that will become visible
+  // You can use the API to get more information for example:
+
+  // Get the actvide slide node
+  const currentSlide = lightbox.getActiveSlide();
+
+  // Get slide data, url, type, and more
+  const slideConfig = lightbox.getSlideData(next);
+});
+
+lightbox.on('slide_changed', ({ prev, current }) => {
+  console.log('Prev slide', prev);
+  console.log('Current slide', current);
+
+  // Prev and current are objects that contain the following data
+  const { slideIndex, slideNode, slideConfig, trigger } = current;
+});
+```
+
+
+
+```javascript
+// Useful to modify the slide
+// before it's content is added
+lightbox.on('slide_before_load', (data) => {
+  // data is an object that contain the following
+  const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+});
+
+// Useful to execute scripts that depends
+// on the slide to be ready with all it's content
+// and already has a height
+// data will contain all the info about the slide
+lightbox.on('slide_after_load', (data) => {
+  // data is an object that contain the following
+  const { slideIndex, slideNode, slideConfig, trigger } = data;
+});
+
+// Trigger a function when a slide is inserted
+lightbox.on('slide_inserted', (data) => {
+  // data is an object that contain the following
+  const { slideIndex, slideNode, slideConfig, trigger } = data;
+});
+
+// Trigger a function when a slide is removed
+lightbox.on('slide_removed', (index) => {
+  // index is the position of the element in the gallery
+});
+```

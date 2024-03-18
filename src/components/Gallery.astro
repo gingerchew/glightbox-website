@@ -1,0 +1,52 @@
+---
+import GalleryItem from '@/components/GalleryItem.astro';
+
+interface Props {
+  id: string;
+  columns: number;
+  large: string;
+  items: any[];
+  className?: string;
+}
+const { id = '', columns = 4, items = [] } = Astro.props;
+---
+
+<div
+  class:list={[
+    'my-11 grid gap-2 md:gap-4',
+    {
+      'grid-cols-4': columns === 4,
+      'grid-cols-3': columns === 3,
+    },
+  ]}
+>
+  {items.map((item) => <GalleryItem id={id} {...item} />)}
+  <slot />
+</div>
+
+<script>
+  import 'glightbox/style';
+</script>
+
+<script>
+  import { GLightbox } from 'glightbox';
+  import { ImageSlide, VideoSlide, KeyboardNavigation } from 'glightbox/plugins';
+
+  new GLightbox({
+    appearance: {
+      openEffect: 'zoom',
+    },
+    plugins: [
+      new KeyboardNavigation(),
+      new ImageSlide({
+        matchFn: (match: boolean, url: string) => {
+          if (url.includes('picsum')) {
+            match = true;
+          }
+          return match;
+        },
+      }),
+      new VideoSlide(),
+    ],
+  });
+</script>

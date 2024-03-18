@@ -1,0 +1,34 @@
+---
+title: Options
+description: Available options
+---
+
+GLightbox is a beautful lightbox library written using TypeScript. It has plugins support and it's completely modular meaning you add the plugins your project needs.
+ There's plugins to display images, iframes, inline content, videos and each plugin has it's own configuration.
+
+<Callout icon="💡" type="info">
+**This options are used to configure only the lightbox instance**, each plugin has it's own options so make sure you also read the plugins section to learn how to configure install and configure plugins.
+</Callout>
+
+## Options
+
+| Option | Type | Default | Description |
+| --- | --- | --- | --- |
+| plugins  | array | `null` | List of plugins to use. |
+| items | array | `null` | Instead of passing a selector you can pass all the items that you want in the gallery. |
+| dataAttributesPrefix | string | `null` | Add a prefix to data attributes, so instead of adding a data-title attribute you could use data-myprefix-title  |
+| autoGallery | boolean | `true` | If true all the items with attribute `data-glightbox` selector will open in a gallery, if set to false items will open individually. |
+| closeOnOutsideClick | boolean | `true` | Close the lightbox when clicking outside the active slide. |
+| startAt | number | `0` | Open lightbox at defined index. |
+| appearance | AppearanceOptions | `` | Configure the lightbox appearance |
+
+## Appearance Options
+
+| Option | Type | Default | Description |
+| --- | --- | --- | --- |
+| theme | string | `clean` | Name of the theme you want to use |
+| slideEffect | string | `fade` | Animation to use on slide change |
+| openEffect  | string | `zoom` | Animation to use on slide open |
+| lightboxHTML  | string | null | You can adjust completely the HTML structure of the lightbox |
+| slideHTML  | string | null | You can adjust completely the HTML structure of the slide |
+| svg  | `{next: "", prev: "", loader: ""}` | null | You can adjust completely the SVG icons |

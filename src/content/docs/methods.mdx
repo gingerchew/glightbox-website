@@ -1,0 +1,110 @@
+---
+title: Methods
+description: Available API methods
+---
+
+There are methods, setters and getters on a GLightbox object. The easiest way to access the GLightbox object is to set the return value from your call to a variable. For example:
+
+```javascript
+const lightbox = GLightbox({ ...options });
+```
+
+## Available Methods
+
+### open
+
+Open the lightbox, you can optionally pass a node.
+
+| Method   | Parameters  | Returns |
+| -------- | ----------- | ------- |
+| open     | `number or HTMLElement or undefined` | void |
+
+### close
+
+Close the lightbox.
+
+| Method   | Parameters  | Returns |
+| -------- | ----------- | ------- |
+| close     | `-` | void |
+
+### reload
+
+The reload method will set again event listeners, use this methid if you are inserting content dinamically in your page.
+
+| Method   | Parameters  | Returns |
+| -------- | ----------- | ------- |
+| reload     | `-` | void |
+
+### destroy
+
+Destroy and remove all attached events.
+
+| Method   | Parameters  | Returns |
+| -------- | ----------- | ------- |
+| destroy     | `-` | void |
+
+### prevSlide
+
+Go to the previous slide.
+
+| Method   | Parameters  | Returns |
+| -------- | ----------- | ------- |
+| prevSlide     | `-` | void |
+
+### nextSlide
+
+Go to the next slide.
+
+| Method   | Parameters  | Returns |
+| -------- | ----------- | ------- |
+| nextSlide     | `-` | void |
+
+### goToSlide
+
+Go to a specific slide, to call this method the lightbox must be already open.
+
+| Method   | Parameters  | Returns |
+| -------- | ----------- | ------- |
+| goToSlide | `number` | void |
+
+### insertSlide
+
+Insert a slide at the specified position.
+
+| Method   | Parameters  | Returns |
+| -------- | ----------- | ------- |
+| insertSlide | `object, number` | void |
+
+### removeSlide
+
+Remove slide at the specified index
+
+| Method   | Parameters  | Returns |
+| -------- | ----------- | ------- |
+| removeSlide | `number` | void |
+
+
+### getActiveSlide
+
+Get active slide. It will return the active node.
+
+| Method   | Parameters  | Returns |
+| -------- | ----------- | ------- |
+| getActiveSlide     | `-` | HTMLElement |
+
+### getActiveSlideIndex
+
+Get active slide. It will return the active slide index.
+
+| Method   | Parameters  | Returns |
+| -------- | ----------- | ------- |
+| getActiveSlideIndex     | `-` | number |
+
+
+### setElements
+
+Update the lightbox gallery elements.
+
+| Method   | Parameters  | Returns |
+| -------- | ----------- | ------- |
+| setElements     | `array` | void |

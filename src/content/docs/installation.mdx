@@ -1,0 +1,93 @@
+---
+title: Installation
+description: How to install the library
+---
+
+GLightbox can be easily installed using a package manager. Alternatively, you can include the library using a CDN. We also provide comprehensive guides on [integrating the library in multiple frameworks and CMS platforms](/guides/integrations).
+
+### Package manager
+
+```bash
+# Install using npm
+$ npm install glightbox@beta
+
+# Install using yarn
+$ yan add glightbox@beta
+
+# Install using pnpm
+$ pnpm add glightbox@beta
+```
+
+Once the package has been installed you can import it as an ES module:
+
+
+```javascript
+import { GLightbox } from 'glightbox';
+import { ImageSlide, KeyboardNavigation } from 'glightbox/plugins';
+import 'glightbox/style';
+
+const lightbox = new GLightbox({
+  plugins: [
+      new KeyboardNavigation(),
+      new ImageSlide(),
+    ],
+});
+```
+
+### CDN
+
+```html
+<!-- Add the CSS before the closing head tag -->
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/dist/style.css"
+/>
+```
+
+The implementation of the script depends on whether you are using ES modules or not. Below are examples demonstrating how to incorporate and initialize GLightbox using both ES Module and UMD approaches.
+
+#### ES Module
+
+```html
+<!-- Add the script before the closing body tag -->
+<script type="module">
+    import { GLightbox } from "https://cdn.jsdelivr.net/npm/dist/glightbox.es.js";
+    const lightbox = new GLightbox({});
+</script>
+```
+
+
+#### UMD
+
+The UMD version (Universal Module Definition) can be used in two diffrent ways, the firts one is inlcuding the plugins.umd.js, this file includes the following plugins `ImageSlide, VideoSlide, IframeSlide, InlineContentSlide and KeyboardNavigation` When using this approach, plugin initialization can be achieved as demonstrated below:
+
+```html
+<!-- Add the script before the closing body tag -->
+<script src="https://cdn.jsdelivr.net/npm/dist/glightbox.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dist/plugins.umd.js"></script>
+<script type="text/javascript">
+    const lightbox = new GLightbox({
+      plugins: [
+        new GLightboxPlugins.KeyboardNavigation(),
+        new GLightboxPlugins.ImageSlide()
+      ]
+    });
+</script>
+```
+
+If you wish to include only the plugins you require, you can achieve it as follows:
+
+```html
+<!-- Add the script before the closing body tag -->
+<script src="https://cdn.jsdelivr.net/npm/dist/glightbox.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dist/ImageSlide.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dist/KeyboardNavigation.umd.js"></script>
+<script type="text/javascript">
+    const lightbox = new GLightbox({
+      plugins: [
+        new KeyboardNavigation()
+        new ImageSlide()
+      ]
+    });
+</script>
+```
