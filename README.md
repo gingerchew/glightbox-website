@@ -1,5 +1,7 @@
 # GLightbox Website
 
+You can preview this website at [https://glightbox.biati.digital](https://glightbox.biati.digital)
+
 ## Project Structure
 
 ```
